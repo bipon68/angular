@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-practice';
+
+  title = 'angular practice title';
+  // courses = ['course1', 'course2', 'course3']
+  courses;
+
+  getTitle(){
+    return this.title;
+  }
+
+  constructor(){
+    
+  }
+
 }
