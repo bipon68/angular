@@ -8,7 +8,11 @@ import { CoursesService } from '../courses.service';
 })
 export class CoursesComponent implements OnInit {
 
+  isActive = true;
+
   courses;
+  imageUrl = "http://lorempixel.com/400/200/";
+  colSpan = 2;
 
   constructor(service: CoursesService) {
     // let service = new CoursesService;
@@ -16,6 +20,10 @@ export class CoursesComponent implements OnInit {
    }
 
   ngOnInit() {
+
+  }
+  onSave($event){
+    console.log('Button was clicked!', $event)
   }
 
 }

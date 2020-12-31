@@ -1,9 +1,29 @@
-<p>
-  Courses List
-</p>
 
-<div>
-  <ul>
-      <li *ngFor="let course of courses">{{course}}</li>
-  </ul>
-</div>
+  <p>
+    Courses List
+  </p>
+  
+  <div>
+    <ul>
+        <li *ngFor="let course of courses">{{course}}</li>
+    </ul>
+  </div>
+  
+  <img src="{{imageUrl}}" alt="">
+  <img [src]="imageUrl" alt="">
+  
+  <div>
+    <table>
+      <tr>
+        <td [attr.colspan]="colSpan">
+          demo
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <h3>Bootstrap Button</h3>
+  <!-- <button class="btn btn-primary" [class.active]="isActive">Button</button> -->
+  <!-- <button [style.backgroundColor]="isActive ? 'blue': 'white'">Style Binding</button> -->
+  <button class="btn btn-primary" (click)="onSave($event)">Button</button>
+  
