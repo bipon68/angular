@@ -1,0 +1,27 @@
+<!-- <ul>
+    <li *ngFor="let dish of dishes">{{dish.name}}</li>
+</ul> -->
+
+
+<!-- <div *ngFor="let dish of dishes">
+    <img src="{{dish.image}}" alt="{{dish.name}}">
+    <h2>{{dish.name}}</h2>
+    <p>{{dish.description}}</p>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="card col" *ngFor="let dish of dishes">
+            <img src="{{dish.image}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{dish.name}}</h5>
+              <p class="card-text">{{dish.description}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+    </div>
+</div>
+
+
+
+{{dishes | json}}
