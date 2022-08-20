@@ -1,0 +1,10 @@
+book store & portfolio project
+
+1. Build RESTful API with node.js, express.js and mongoDB
+
+=====> Follow Steps....
+=> mkdir rest-api && cd rest-api
+=> npm init
+=> npm install express cors body-parser mongoose
+=> npm install nodemon --save-dev
+=> mkdir database && cd database && touch db.js
