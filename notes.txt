@@ -1,4 +1,4 @@
-- ng new userapi
+- ng new userapi (ng new project_name)
 https://github.com/getarrays/usercatalog
 - ng g c component/users or ng g c component/users --skip-tests (skip test files)
 Create a new component app/component/user
@@ -42,4 +42,86 @@ export class AppRoutingModule { }
 now you are loaded specific content then declare <router-outlet></router-outlet> into app.component.html file
 
 ### Random User API
+
+### Application Service
+It's to use to fetch data. Services are use to centralized for smimilar functionality. 
+
+ng g s service/user
+
+user.service.ts
+
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+
+  constructor() { }
+}
+
+app.module.ts update for HttpClientModule
+
+import { HttpClientModule } from '@angular/common/http';
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+  ],
+
+Update user.service.ts file
+
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+  private readonly apiUrl: string = 'https://randomuser.me/api';
+
+  constructor(private http: HttpClient) { }
+
+// fetch user
+getUsers(size: number = 10): Observable<any>{
+  return this.http.get<any>(`${this.apiUrl}/?results=${size}`)
+}
+
+// fetch one user using the UUID
+getUser(uuid: number = 1): Observable<any>{
+  return this.http.get<any>(`${this.apiUrl}/?uuid=${uuid}`)
+}
+
+}
+### Displaying Fetched Users
+users.component.s file
+import { UserService } from './../../service/user.service';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-users',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.css']
+})
+export class UsersComponent implements OnInit {
+
+  constructor(private UserService: UserService) { }
+
+  ngOnInit(): void {
+    this.UserService.getUsers(15).subscribe(
+        (results: any) => {
+          console.log(results)
+        }
+    );
+  }
+
+}
+
+Image from console
+
+
+
+### Mapping API Response
+
 
