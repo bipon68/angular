@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FavoriteComponent } from '../app/favorite/favorite.component';
+// import { FavoriteComponent } from '../app/favorite/favorite.component';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +8,17 @@ import { FavoriteComponent } from '../app/favorite/favorite.component';
 })
 export class AppComponent {
 
-  title = 'angular practice title';
+  title = 'User Catalog';
   // courses = ['course1', 'course2', 'course3']
-  courses;
-  post = {
-    title: "Post title",
-    isFavorite: true
-  }
+  // courses;
+  // post = {
+  //   title: "Post title",
+  //   isFavorite: true
+  // }
 
-  getTitle(){
-    return this.title;
-  }
+  // getTitle(){
+  //   return this.title;
+  // }
 
   constructor(){
     

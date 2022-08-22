@@ -9,9 +9,15 @@
 
 <favorite [isFavorite]="post.isFavorite" ></favorite> -->
 
-<div class="container">
-
+<div class="container mt-4 mb-4">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>{{title}}</h2>
+            <hr>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>
 
-<router-outlet></router-outlet>
+
 
