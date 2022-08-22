@@ -11,6 +11,8 @@ import { Response } from 'src/app/interface/response.interface';
 export class UserdetailComponent implements OnInit {
 
   response: Response;
+  mode: 'edit' | 'locked' = 'locked'
+  buttonText: 'Save Changes' | 'Edit' = 'Edit'
 
   constructor(private activatedRoute:ActivatedRoute, private userService: UserService) { }
 
@@ -24,6 +26,15 @@ export class UserdetailComponent implements OnInit {
         }
       )
     })
+  }
+
+  changeMode(mode?: 'edit' | 'locked'):void{
+    console.log(mode);
+    this.mode = this.mode === 'locked' ? 'edit': 'locked';
+    this.buttonText = this.buttonText === 'Edit' ? 'Save Changes' : 'Edit';
+    if(mode === 'edit'){
+      console.log('Updating using on the backend')
+    }
   }
 
 }
