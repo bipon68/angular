@@ -1,6 +1,7 @@
 import { UserService } from './../../service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Response } from 'src/app/interface/response.interface';
 
 @Component({
   selector: 'app-userdetail',
@@ -9,6 +10,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class UserdetailComponent implements OnInit {
 
+  response: Response;
+
   constructor(private activatedRoute:ActivatedRoute, private userService: UserService) { }
 
   ngOnInit(): void {
@@ -16,7 +19,8 @@ export class UserdetailComponent implements OnInit {
       console.log('User ID: ', params.get('uuid')!);
       this.userService.getUser(params.get('uuid')!).subscribe(
         (response: any) => {
-          console.log(response)
+          console.log(response);
+          this.response = response;
         }
       )
     })
