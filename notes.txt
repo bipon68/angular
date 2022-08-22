@@ -1,0 +1,45 @@
+- ng new userapi
+https://github.com/getarrays/usercatalog
+- ng g c component/users or ng g c component/users --skip-tests (skip test files)
+Create a new component app/component/user
+
+also It's does added this declarations array UsersComponent into app.moduel.ts file. 
+Generated automatic. Registering this component in app.module. Angular CLI know that if you generated 
+a component then register automatically app.module file
+
+ng g c component/userdetail
+
+### Routing
+app.module.ts file
+
+import { AppRoutingModule } from './app-routing.module';
+
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+  ],
+
+app-routing.module.ts file
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { UserdetailComponent } from './component/userdetail/userdetail.component';
+import { UsersComponent } from './component/users/users.component';
+
+const routes: Routes = [
+  { path: 'users', component: UsersComponent },
+  { path: 'user/:uuid', component: UserdetailComponent },
+  { path: '**', redirectTo: 'users' }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+now you are loaded specific content then declare <router-outlet></router-outlet> into app.component.html file
+
+### Random User API
+

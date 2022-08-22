@@ -1,21 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CoursesService } from './courses.service';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { UsersComponent } from './component/users/users.component';
+import { UserdetailComponent } from './component/userdetail/userdetail.component';
 
 @NgModule({
   declarations: [		
     AppComponent,
       CoursesComponent,
-      FavoriteComponent
+      FavoriteComponent,
+      UsersComponent,
+      UserdetailComponent
    ],
   imports: [
     BrowserModule,
-    FormsModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [
     CoursesService
