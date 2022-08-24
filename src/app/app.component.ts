@@ -1,5 +1,6 @@
+import { UserService } from './service/user.service';
 import { Observable } from 'rxjs';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 // import { FavoriteComponent } from '../app/favorite/favorite.component';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   
   title = 'User Catalog';
@@ -22,7 +23,7 @@ export class AppComponent {
   //   return this.title;
   // }
 
-  constructor(){
+  constructor(private userService: UserService){
     type HttpResponse = {code: number, data: string};
 
     const observable = new Observable<HttpResponse>(subscriber => {
@@ -38,18 +39,42 @@ export class AppComponent {
       console.log('subscriber is done emitting...')
     })
 
-    observable.subscribe({
-      next(response: HttpResponse){
-        console.log('got Response: ', response)
-      },
-      error(error: any){
-        console.error('something wrong occured: ', error)
-      },
-      complete(){
-        console.log('done')
-      }
-    })
+    // observable.subscribe({
+    //   next(response: HttpResponse){
+    //     console.log('got Response: ', response)
+    //   },
+    //   error(error: any){
+    //     console.error('something wrong occured: ', error)
+    //   },
+    //   complete(){
+    //     console.log('done')
+    //   }
+    // })
     
   }
+
+ngOnInit(): void {
+  this.onGetUsers();
+  this.onGetUser()
+}
+
+
+
+  onGetUsers(): void {
+    this.userService.getUsers().subscribe(
+      (response) => console.log(response),
+      (error: any) => console.log(),
+      ()=> console.log('Done everything users')
+    )
+  }
+  onGetUser(): void {
+    this.userService.getUser().subscribe(
+      (response) => console.log(response),
+      (error: any) => console.log(),
+      ()=> console.log('Done everything user')
+    )
+  }
+
+
 
 }

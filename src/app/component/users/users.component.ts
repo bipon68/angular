@@ -11,7 +11,7 @@ export class UsersComponent implements OnInit {
 
   response: Response;
 
-  constructor(private userService: UserService) { }
+  constructor(private UserService: UserService) { }
 
   ngOnInit(): void {
     // this.UserService.getUsers(15).subscribe(
@@ -20,10 +20,6 @@ export class UsersComponent implements OnInit {
     //       this.response = results
     //     }
     // );
-    // this.userService.getUsers().subscribe(response: User[]) => this.users = response,
-    // (error: any) => console.log(),
-    // ()=> console.log('Done everything users')
-
   }
 
 }
