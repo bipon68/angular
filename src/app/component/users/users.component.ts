@@ -11,15 +11,19 @@ export class UsersComponent implements OnInit {
 
   response: Response;
 
-  constructor(private UserService: UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.UserService.getUsers(15).subscribe(
-        (results: any) => {
-          console.log(results)
-          this.response = results
-        }
-    );
+    // this.UserService.getUsers(15).subscribe(
+    //     (results: any) => {
+    //       console.log(results)
+    //       this.response = results
+    //     }
+    // );
+    // this.userService.getUsers().subscribe(response: User[]) => this.users = response,
+    // (error: any) => console.log(),
+    // ()=> console.log('Done everything users')
+
   }
 
 }

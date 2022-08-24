@@ -19,15 +19,15 @@ export class UserdetailComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      console.log('User ID: ', params.get('uuid')!);
-      this.userService.getUser(params.get('uuid')!).subscribe(
-        (response: any) => {
-          console.log(response);
-          this.response = response;
-        }
-      )
-    })
+    // this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+    //   console.log('User ID: ', params.get('uuid')!);
+    //   this.userService.getUser(params.get('uuid')!).subscribe(
+    //     (response: any) => {
+    //       console.log(response);
+    //       this.response = response;
+    //     }
+    //   )
+    // })
     //this.loadMap(this.response.coordinate)
   }
 

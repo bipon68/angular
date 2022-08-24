@@ -1,0 +1,57 @@
+### Environment Setup
+A protocol which allows the fetching of resources such as HTML documents, from a web server. 
+
+### HTTP Client Configuration
+app.module.ts
+
+import { HttpClientModule } from '@angular/common/http';
+
+@NgModule({
+  declarations: [		
+   ],
+  imports: [
+    HttpClientModule
+  ],
+  providers: [
+    CoursesService
+  ],
+  bootstrap: [AppComponent]
+})
+
+### Angular Services, Creating Angular Service
+https://angular.io/cli/generate#service-command
+
+ng g service service/user
+
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+
+constructor() { }
+
+}
+
+### Injecting HTTP Client
+https://transform.tools/
+user.service.ts
+import { HttpClient } from '@angular/common/http';
+
+export class UserService {
+
+  constructor(private http: HttpClient) { }
+
+}
+
+### Mapping Http Response Type
+
+https://angular.io/cli/generate#interface-command
+ng generate interface interface/user
+
+### Subscribing to Observables
+
+
+### Reference
+https://angular.io/cli/generate
