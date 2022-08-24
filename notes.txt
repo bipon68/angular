@@ -171,3 +171,9 @@ angular.json file
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
 
+### Route Resolver
+ng generate resolver service/user
+
+### Leaflet Map API Integration
+npm i leaflet
+npm i @types/leaflet -D

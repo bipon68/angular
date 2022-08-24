@@ -1,4 +1,6 @@
+import { Coordinate } from './../../interface/coordinate.interface';
 import { UserService } from './../../service/user.service';
+import * as LeafLet from 'leaflet';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Response } from 'src/app/interface/response.interface';
@@ -26,6 +28,7 @@ export class UserdetailComponent implements OnInit {
         }
       )
     })
+    //this.loadMap(this.response.coordinate)
   }
 
   changeMode(mode?: 'edit' | 'locked'):void{
@@ -35,6 +38,22 @@ export class UserdetailComponent implements OnInit {
     if(mode === 'edit'){
       console.log('Updating using on the backend')
     }
+  }
+
+  private loadMap(coordinate: Coordinate): void{
+    const map = LeafLet.map('map', {
+      center: [coordinate.latitude, coordinate.longitude],
+      zoom: 8
+    })
+    const mainLayer = LeafLet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      tileSize: 512,
+      zoomOffset: -1,
+      minZoom: 1,
+      maxZoom: 30,
+      crossOrigin: true,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+    mainLayer.addTo(map);
   }
 
 }
