@@ -11,28 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  private user: User = {
-    'id': 5,
+  private user: any = {
+    'id': 2,
     'name': 'Sajib Biswas',
     'username': 'sajib',
-    'email': 'sajib@pridesys.biz',
-    'address': {
-      'street': 'Khulna Light',
-      'suite': 'Apt. 556',
-      'city': 'Gwenborough',
-      'zipcode': '92998-3874',
-      'geo': {
-        'lat': '-37.3159',
-        'lng': '81.1496'
-      }
-    },
-    'phone': '1-770-736-8031 x56442',
-    'website': 'pridesys.org',
-    'company': {
-      'name': 'Pridesys IT',
-      'catchPhrase': 'Multi-layered client-server neural-net',
-      'bs': 'harness real-time e-markets'
-    }
+    'email': 'sajib@pridesys.biz'
   }
 
   
@@ -79,17 +62,18 @@ export class AppComponent implements OnInit {
   }
 
 ngOnInit(): void {
+  this.onPatchUser();
   this.onGetUsers();
   // this.onGetUser();
   // this.onCreateUser();
-  this.onUpdateUser();
+  // this.onUpdateUser();
 }
 
 
 
   onGetUsers(): void {
     this.userService.getUsers().subscribe(
-      (response) => console.table(response),
+      (response) => console.log(response),
       (error: any) => console.log(),
       ()=> console.log('Done everything users')
     )
@@ -115,6 +99,15 @@ ngOnInit(): void {
       (response) => console.log(response),
       (error: any) => console.log(),
       ()=> console.log('Done updating user')
+    )
+  }
+
+  // update the whole thing
+  onPatchUser(): void {
+    this.userService.patchUser(this.user).subscribe(
+      (response) => console.log(response),
+      (error: any) => console.log(),
+      ()=> console.log('Done patching user')
     )
   }
 
