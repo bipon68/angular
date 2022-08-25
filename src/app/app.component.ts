@@ -1,3 +1,4 @@
+import { User } from './interface/user';
 import { UserService } from './service/user.service';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
@@ -10,12 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  private user: User = {
+    'name': 'Bipon Biswas',
+    'username': 'bipon',
+    'email': 'bipon@april.biz',
+    'address': {
+      'street': 'Khulna Light',
+      'suite': 'Apt. 556',
+      'city': 'Gwenborough',
+      'zipcode': '92998-3874',
+      'geo': {
+        'lat': '-37.3159',
+        'lng': '81.1496'
+      }
+    },
+    'phone': '1-770-736-8031 x56442',
+    'website': 'hildegard.org',
+    'company': {
+      'name': 'Pridesys IT',
+      'catchPhrase': 'Multi-layered client-server neural-net',
+      'bs': 'harness real-time e-markets'
+    }
+  }
+
   
   title = 'User Catalog';
   // courses = ['course1', 'course2', 'course3']
   // courses;
   // post = {
-  //   title: "Post title",
+  //   title: 'Post title',
   //   isFavorite: true
   // }
 
@@ -55,14 +79,15 @@ export class AppComponent implements OnInit {
 
 ngOnInit(): void {
   this.onGetUsers();
-  this.onGetUser()
+  // this.onGetUser();
+  this.onCreateUser();
 }
 
 
 
   onGetUsers(): void {
     this.userService.getUsers().subscribe(
-      (response) => console.log(response),
+      (response) => console.table(response),
       (error: any) => console.log(),
       ()=> console.log('Done everything users')
     )
@@ -72,6 +97,14 @@ ngOnInit(): void {
       (response) => console.log(response),
       (error: any) => console.log(),
       ()=> console.log('Done everything user')
+    )
+  }
+
+  onCreateUser(): void {
+    this.userService.createUser(this.user).subscribe(
+      (response) => console.log(response),
+      (error: any) => console.log(),
+      ()=> console.log('Done creating user')
     )
   }
 
