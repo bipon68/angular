@@ -62,8 +62,9 @@ export class AppComponent implements OnInit {
   }
 
 ngOnInit(): void {
-  this.onPatchUser();
+  // this.onPatchUser();
   this.onGetUsers();
+  this.onDeleteUser();
   // this.onGetUser();
   // this.onCreateUser();
   // this.onUpdateUser();
@@ -108,6 +109,14 @@ ngOnInit(): void {
       (response) => console.log(response),
       (error: any) => console.log(),
       ()=> console.log('Done patching user')
+    )
+  }
+
+  onDeleteUser(): void {
+    this.userService.deleteUser(5).subscribe(
+      (response) => console.log('Response from delete', response),
+      (error: any) => console.log(),
+      ()=> console.log('Done delete user')
     )
   }
 
