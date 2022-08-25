@@ -12,9 +12,10 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   private user: User = {
-    'name': 'Bipon Biswas',
-    'username': 'bipon',
-    'email': 'bipon@april.biz',
+    'id': 5,
+    'name': 'Sajib Biswas',
+    'username': 'sajib',
+    'email': 'sajib@pridesys.biz',
     'address': {
       'street': 'Khulna Light',
       'suite': 'Apt. 556',
@@ -26,7 +27,7 @@ export class AppComponent implements OnInit {
       }
     },
     'phone': '1-770-736-8031 x56442',
-    'website': 'hildegard.org',
+    'website': 'pridesys.org',
     'company': {
       'name': 'Pridesys IT',
       'catchPhrase': 'Multi-layered client-server neural-net',
@@ -80,7 +81,8 @@ export class AppComponent implements OnInit {
 ngOnInit(): void {
   this.onGetUsers();
   // this.onGetUser();
-  this.onCreateUser();
+  // this.onCreateUser();
+  this.onUpdateUser();
 }
 
 
@@ -105,6 +107,14 @@ ngOnInit(): void {
       (response) => console.log(response),
       (error: any) => console.log(),
       ()=> console.log('Done creating user')
+    )
+  }
+
+  onUpdateUser(): void {
+    this.userService.updateUser(this.user).subscribe(
+      (response) => console.log(response),
+      (error: any) => console.log(),
+      ()=> console.log('Done updating user')
     )
   }
 
