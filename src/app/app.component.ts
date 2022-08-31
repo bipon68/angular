@@ -63,11 +63,14 @@ export class AppComponent implements OnInit {
 
 ngOnInit(): void {
   // this.onPatchUser();
-  this.onGetUsers();
-  this.onDeleteUser();
+  // this.onGetUsers();
+  // this.onDeleteUser();
+  
   // this.onGetUser();
   // this.onCreateUser();
   // this.onUpdateUser();
+  // this.onTextFile();
+  this.onDownloadFile();
 }
 
 
@@ -117,6 +120,22 @@ ngOnInit(): void {
       (response) => console.log('Response from delete', response),
       (error: any) => console.log(),
       ()=> console.log('Done delete user')
+    )
+  }
+
+  // onTextFile(): void {
+  //   this.userService.getTextFile().subscribe(
+  //     (response) => console.log('Response from text file : ', response),
+  //     (error: any) => console.log(),
+  //     ()=> console.log('Done getting text file')
+  //   )
+  // }
+
+  onDownloadFile(): void {
+    this.userService.downloadFile().subscribe(
+      (response) => console.log('Response from text file : ', response),
+      (error: any) => console.log(),
+      ()=> console.log('Done getting text file')
     )
   }
 

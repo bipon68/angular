@@ -1,5 +1,5 @@
 import { environment } from './../../environments/environment';
-import { HttpClient, HttpHeaders, HttpParams, HttpEvent } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../interface/user';
@@ -36,6 +36,13 @@ export class UserService {
   }
 
   // fetch user
+  // getTextFile(): Observable<string>{
+  //   return this.http.get(`assets/text.txt`, {responseType: 'text'})
+  // }
+  downloadFile(): Observable<HttpResponse<Blob>>{
+    return this.http.get(`assets/text.txt`, {responseType: 'blob', observe: 'response'})
+  }
+
   getUser(): Observable<User>{
     return this.http.get<User>(`${this.apiUrl}/users/1`)
   }
