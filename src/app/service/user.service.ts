@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpEvent, HttpResponse } from '@a
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../interface/user';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -31,8 +32,24 @@ export class UserService {
   //   return this.http.get<User[]>(`${this.apiUrl}/users`, {params: myParams})
   // }
 
-  getUsers(): Observable<HttpEvent<User[]>>{
-    return this.http.get<User[]>(`${this.apiUrl}/users`, {observe: 'events'})
+  // getUsers(): Observable<HttpEvent<User[]>>{
+  //   return this.http.get<User[]>(`${this.apiUrl}/users`, {observe: 'events'})
+  // }
+
+  getUsers(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.apiUrl}/users`)
+      .pipe(
+        // tap(users => console.log(users)),
+        map(users => users.map(user => ({
+          // ...user,
+          name: user.name.toUpperCase(),
+          username: user.username,
+          email: user.email,
+          website: user.website,
+          phone: user.phone,
+          isAdmin: user.id === 10? 'Admin' : 'User'
+        })))
+      )
   }
 
   // fetch user

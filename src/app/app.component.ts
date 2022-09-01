@@ -11,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  users: User[];
+
   private user: any = {
     'id': 2,
     'name': 'Sajib Biswas',
@@ -63,21 +65,24 @@ export class AppComponent implements OnInit {
 
 ngOnInit(): void {
   // this.onPatchUser();
-  // this.onGetUsers();
+  this.onGetUsers();
   // this.onDeleteUser();
   
   // this.onGetUser();
   // this.onCreateUser();
   // this.onUpdateUser();
   // this.onTextFile();
-  this.onDownloadFile();
+  // this.onDownloadFile();
 }
 
 
 
   onGetUsers(): void {
     this.userService.getUsers().subscribe(
-      (response) => console.log(response),
+      (response) => {
+        console.log(response);
+        this.users = response;
+      },
       (error: any) => console.log(),
       ()=> console.log('Done everything users')
     )
