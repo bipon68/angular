@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpEvent, HttpResponse } from '@a
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../interface/user';
-import { map, tap } from 'rxjs/operators';
+import { map, retry, tap } from 'rxjs/operators';
 //https://robohash.org/
 
 @Injectable({
@@ -39,20 +39,21 @@ export class UserService {
   // }
 
   getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.apiUrl}/users`)
+    return this.http.get<User[]>(`${this.apiUrl}/users0000`)
       .pipe(
+        retry(3),
         // tap(users => console.log(users)),
-        map(users => users.map(user => ({
-          // ...user,
-          name: user.name.toUpperCase(),
-          username: user.username,
-          image: `${this.defaultImage}${user.username.toLowerCase()}`,
-          email: user.email,
-          website: user.website,
-          phone: user.phone,
-          isAdmin: user.id === 10? 'Admin' : 'User',
-          searchKey: [user.name, user.username]
-        })))
+        // map(users => users.map(user => ({
+        //   // ...user,
+        //   name: user.name.toUpperCase(),
+        //   username: user.username,
+        //   image: `${this.defaultImage}${user.username.toLowerCase()}`,
+        //   email: user.email,
+        //   website: user.website,
+        //   phone: user.phone,
+        //   isAdmin: user.id === 10? 'Admin' : 'User',
+        //   searchKey: [user.name, user.username]
+        // })))
       )
   }
 
@@ -91,5 +92,23 @@ export class UserService {
   deleteUser(id: number): Observable<void>{
     return this.http.delete<void>(`${this.apiUrl}/users/${id}`)
   }
+
+  // getUsers(): Observable<User[]>{
+  //   return this.http.get<User[]>(`${this.apiUrl}/users`)
+  //     .pipe(
+  //       // tap(users => console.log(users)),
+  //       map(users => users.map(user => ({
+  //         // ...user,
+  //         name: user.name.toUpperCase(),
+  //         username: user.username,
+  //         image: `${this.defaultImage}${user.username.toLowerCase()}`,
+  //         email: user.email,
+  //         website: user.website,
+  //         phone: user.phone,
+  //         isAdmin: user.id === 10? 'Admin' : 'User',
+  //         searchKey: [user.name, user.username]
+  //       })))
+  //     )
+  // }
 
 }
