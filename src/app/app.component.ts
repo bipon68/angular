@@ -66,6 +66,7 @@ export class AppComponent implements OnInit {
 ngOnInit(): void {
   // this.onPatchUser();
   this.onGetUsers();
+  this.onGetUser();
   // this.onDeleteUser();
   
   // this.onGetUser();
@@ -89,7 +90,10 @@ ngOnInit(): void {
   }
   onGetUser(): void {
     this.userService.getUser().subscribe(
-      (response) => console.log(response),
+      (response) => {
+        console.log(response);
+        this.user = response;
+      },
       (error: any) => console.log(),
       ()=> console.log('Done everything user')
     )

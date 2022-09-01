@@ -4,13 +4,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../interface/user';
 import { map, tap } from 'rxjs/operators';
+//https://robohash.org/
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private apiUrl = environment.apiUrl;
-  readonly moreParams = ['test1', 'test2']
+  readonly moreParams = ['test1', 'test2'];
+  readonly defaultImage = 'https://robohash.org/'
 
   constructor(private http: HttpClient) { }
 
@@ -44,10 +46,12 @@ export class UserService {
           // ...user,
           name: user.name.toUpperCase(),
           username: user.username,
+          image: `${this.defaultImage}${user.username.toLowerCase()}`,
           email: user.email,
           website: user.website,
           phone: user.phone,
-          isAdmin: user.id === 10? 'Admin' : 'User'
+          isAdmin: user.id === 10? 'Admin' : 'User',
+          searchKey: [user.name, user.username]
         })))
       )
   }
@@ -60,8 +64,16 @@ export class UserService {
     return this.http.get(`assets/text.txt`, {responseType: 'blob', observe: 'response'})
   }
 
+  // getUser(): Observable<User>{
+  //   return this.http.get<User>(`${this.apiUrl}/users/1`)
+  // }
+
   getUser(): Observable<User>{
-    return this.http.get<User>(`${this.apiUrl}/users/1`)
+    return this.http.get<User>(`${this.apiUrl}/users/1`).pipe(
+      map(user => {
+        return {...user, isAdmin: true, searchKey: [user.name, user.username]}
+      })
+    )
   }
 
   createUser(user: User): Observable<User>{
