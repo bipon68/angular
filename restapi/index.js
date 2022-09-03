@@ -55,6 +55,27 @@ app.post('/api/courses', (req, res) => {
 })
 
 
+app.put('/api/courses/:id', (req, res)=> {
+    // look up the course
+    // if not existing, return 404
+    const course = courses.find(c => c.id === parseInt(req.params.id))
+    if(!course){
+        res.status(404).send('The course with the give ID was not found')
+    }
+    // validate the coruse
+    // if invalid, return 400 - Bad request
+    if(!req.body.name || req.body.name.length < 3){
+        res.status(400).send('Name is required and should be minimum 3 character.');
+        return;
+    } 
+
+    // update course
+    // return the update course
+   course.name = req.body.name;  
+   res.send(course)
+})
+
+
 // port
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`))
