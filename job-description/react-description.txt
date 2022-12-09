@@ -1,0 +1,83 @@
+React Developer
+Do you want to join the team:
+that has some of the most brilliant engineers of our country?
+that builds and maintains products for some of the most prominent brands globally?
+that plays with state-of-the-art technologies, such as Kafka, Kubernetes, AR/VR, AI/ML, Web3, etc?
+If your answer is YES, please read on.
+Astha IT produces solutions for globally prominent names like Transcom Group, University of Hawaii, MIT, SaaS Ventures, Meriton Australia (a Fortune-500 company) and the United States Department of Defense (DoD).
+
+We are looking for senior-level React developers to join our ever-expanding team and build scalable, high-quality and high-performance web apps.
+
+Our team members work with speed and efficiency to deliver the highest quality of work. We are looking for someone who is passionate about their client’s business, and ready to work on exciting projects with Fortune 500 companies and Silicon Valley startups, with great rates and zero hassles. If you are looking for a place to advance your career, enhance your skill set, and build connections around the globe, Astha IT is right for you.
+Position: Full-time
+
+Vacancy: 7
+
+Job Requirements:
+1) Analyze requirements and understand deliverables.
+2) Build new systems using React and Next.js.
+
+3) Develop new functionalities on existing software products.
+
+4) Code and test systems to meet client requirements.
+
+5) Be responsible for successful completion of code deliverables on time.
+
+6) Be involved in the various phases of the SDLC.
+
+7) Lead and mentor a team of engineers.
+
+8) Decide on the high-level architecture of the product.
+
+9) Communicate with client remotely on a daily basis via Zoom/GMeet using quality English.
+
+Technical Skill Requirements:
+
+You must have the following skills in order to apply.
+1) React (total fluency in their latest versions)
+
+2) HTML (very advanced level)
+
+3) CSS (intermediate to advanced level)
+
+4) Next.js (intermediate to advanced level)
+
+5) Experience with a version control system, such as GIT.
+
+6) Familiarity with CI/CD.
+
+7) Familiarity with AWS.
+
+Optional Skill Requirements:
+
+Following skills are optional and considered bonus.
+1) Good at algorithms and in solving complex computational problems. Mentionable performance in programming contests and problem solving sites like ACM, HackerRank, Codeforces, etc are highly appreciated.
+
+2) 100% clear understanding and practical command over OOP in ANY programming language.
+
+3) Understanding and implementation capacity of GoF and non-GoF design patterns.
+
+4) Experience or understanding of concepts, such as: microservices, REST API, websockets, gRPC, etc.
+
+5) Love for optimization. Allergy with a five-line code that can be written in three.
+
+Academic Requirements:
+
+Not much. If you can fulfill the aforementioned skill requirements, we don’t care about the academic backgrounds. Your skills matter. Certificates and CGPA are secondary.
+But if you have a degree (Bachelors or Masters) in CS / CSC / CSE / Software Engineering, it’s a plus of course.
+
+All we need from you is a super-hungry learning habit and a geeky-techie spirit.
+
+If you have a strong portfolio of complex applications/software/tools that you worked on, that would be terrific.
+
+Experience Requirements:
+5 years or above.
+Younger candidates who do not meet the experience requirements but possess good skills may apply as well.
+Monthly Salary:
+BDT. 130,000 and above, depending on your years of full-time professional experience.
+Other Benefits:
+
+Please read here: https://www.asthait.com/career
+Check out our life at work: https://www.asthait.com/culture
+Application Procedure:
+Please email your resume to jobs@asthait.com along with a proper subject line, and a well-written cover letter that includes bullet-pointed career highlights. Clearly mention the number of years of your professional career, and your expected monthly salary.
