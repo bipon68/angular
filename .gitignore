@@ -45,3 +45,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
+
+primeng-theme/mirage/src/assets/demo/*.css
+primeng-theme/mirage/src/assets/layout/css/*/layout-*.css
+primeng-theme/mirage/src/assets/theme/*/theme-*.css
+primeng-theme/mirage/src/assets/sass/theme/designer
