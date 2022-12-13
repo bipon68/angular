@@ -52,3 +52,5 @@ primeng-theme/mirage/src/assets/demo/*.css
 primeng-theme/mirage/src/assets/layout/css/*/layout-*.css
 primeng-theme/mirage/src/assets/theme/*/theme-*.css
 primeng-theme/mirage/src/assets/sass/theme/designer
+
+restapi/package-lock.json
